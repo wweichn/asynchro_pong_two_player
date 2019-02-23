@@ -9,7 +9,7 @@ The code is based on [Zeta36's work](https://github.com/Zeta36/Asynchronous-Meth
 
 # Result
 
-run```python main_self.py```. This is for two-player ping-pong game(players are both AI, studying from 0)
+run```python main_self.py -threads $threads -pong $storage_name```. This is for two-player ping-pong game(players are both AI, studying from 0)
 
 After 5-6 hours' training, playing durations increased and catches of both player increased.
 
