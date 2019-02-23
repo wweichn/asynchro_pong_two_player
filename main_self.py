@@ -185,9 +185,7 @@ if __name__ == "__main__":
 
 
     sess.run(net1.update_op)
-    sess.run(net1.initAvg_op)
     sess.run(net2.update_op)
-    sess.run(net2.initAvg_op)
 
     path = 'save/self_v' + args.pong
     if not os.path.exists(path):

@@ -38,7 +38,7 @@ def playGame(sess,agent1, net1,net2, lock):
             if j == 0:
                 while not terminal:
 
-                    action = agent1.choose_action_play(net1, s_t,'b')
+                    action = agent1.choose_action_play(net1, s_t)
 
                     lock.acquire()
                     x_t1_col, r_t, terminal = game_state.frame_step(action,1)
@@ -53,7 +53,7 @@ def playGame(sess,agent1, net1,net2, lock):
             else:
                 while not terminal:
 
-                    action = agent1.choose_action_play(net2, s_t, 'b')
+                    action = agent1.choose_action_play(net2, s_t)
                     lock.acquire()
                     x_t1_col, r_t, terminal = game_state.frame_step(action,-1)
                     lock.release()

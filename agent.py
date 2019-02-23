@@ -27,15 +27,10 @@ class Agent():
 
         self.t = 0
 
-    def choose_action_play(self,net,s,flag):
+    def choose_action_play(self,net,s):
         a = np.zeros([self.actions])
-        if flag == 'b':
-            best_q = net.best_q.eval(session=self.session, feed_dict = {net.s:[s]})[0]
-            action_index = np.argmax(best_q)
-        else:
-            pi = net.avg_a.eval(session=self.session,feed_dict = {net.s:[s]})[0]
-            action_index = np.random.choice(len(pi),p = pi)
-
+        best_q = net.best_q.eval(session=self.session, feed_dict = {net.s:[s]})[0]
+        action_index = np.argmax(best_q)
 
         a[action_index] = 1
 

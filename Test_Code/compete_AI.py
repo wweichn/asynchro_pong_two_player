@@ -44,7 +44,7 @@ def playGame(sess,net):
     game_state = game.GameState()
     agent = Agent.Agent(sess)
 
-    x_t, r_0, terminal = game_state.frame_step([1, 0, 0],1)
+    x_t, r_0, terminal = game_state.frame_step([1, 0, 0])
     x_t = cv2.cvtColor(cv2.resize(x_t, (80, 80)), cv2.COLOR_BGR2GRAY)
     s_t = np.stack((x_t, x_t, x_t, x_t), axis=2)
     aux_s = s_t
@@ -58,7 +58,7 @@ def playGame(sess,net):
         action = agent.choose_action_play(net, s_t)
 
         # run the selected action and observe next state and reward
-        x_t1_col, r_t, terminal = game_state.frame_step(action,1)
+        x_t1_col, r_t, terminal = game_state.frame_step(action)
         score += r_t
         x_t1 = cv2.cvtColor(cv2.resize(x_t1_col, (80, 80)), cv2.COLOR_BGR2GRAY)
         x_t1 = np.reshape(x_t1, (80, 80, 1))
@@ -86,7 +86,7 @@ if __name__ == "__main__":
 
     saver = tf.train.Saver()
 
-    path = '../save/AI'
+    path = '../save/self_v0/'
 
     checkpoint = tf.train.get_checkpoint_state(path)
     if checkpoint and checkpoint.model_checkpoint_path:
