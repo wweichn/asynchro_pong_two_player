@@ -29,7 +29,7 @@ After serveral hours' training, playing durations increased and catches of playe
 catches of player(x-axis is iterations)
 ![catches of player](/save/pic/pong-dqn-adapted-score.jpeg)
 
-#Test
+# Test
 
 run ```python Test_code/compete_AI.py```. This is for testing two-player training effect by using trained models competing with computer.
 
